@@ -9,8 +9,8 @@ import 'package:flutter/services.dart' show ByteData, rootBundle;
 import 'package:requests/requests.dart';
 
 bool glogic = true;
-String authHost = "https://api.myglo.com.ua/sellers/authenticate";
-String sellersHost = "https://api.myglo.com.ua/sellers";
+String authHost = "/authenticate";
+String sellersHost = "/sellers";
 String histName = Requests.getHostname(authHost);
 const String login = "@gmail.com";
 const String password = "3PJKSGPV";
@@ -132,7 +132,7 @@ void _testUsingApi(String name, String number) {
 }
 
 Future<void> _searchNumber(String number, String name, String normNumber) async {
-  Response r2 = await Requests.get("https://api.myglo.com.ua/sellers/order/status?phone="+number);
+  Response r2 = await Requests.get("/order/status?phone="+number);
   if (r2.content().length.toString() == "8656") {
     writeFile(name, normNumber);
     print("Подходит - " + name + " " + normNumber);
