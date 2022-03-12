@@ -12,7 +12,7 @@ bool glogic = true;
 String authHost = "/authenticate";
 String sellersHost = "/sellers";
 String histName = Requests.getHostname(authHost);
-const String login = "@gmail.com";
+const String login = "1998amilkerimov@gmail.com";
 const String password = "3PJKSGPV";
 String bigToken = "";
 const String cookie = "XSRF-TOKEN=eyJpdiI6ImlTbjhkaERuZDd3cDJmMXRMeWVxZGc9PSIsInZhbHVlIjoiNXZMXC9odWxReitDZisxcXZwQStYc1NmRVZ6T2JSbDhDbWlqengxZVVleWhVQmdUMlwvVVJEMFRIRFFFeEdDbWdnIiwibWFjIjoiYmYxMTNkMzY1NWM3MDU5Yjc2ZTZjYmVkYjQzMmUyNWY1MDIxNzVhOGMyNjE4ZDVhYTUwNGFlNjM3ZDNiMGU0NSJ9; myglo_session=eyJpdiI6IkVadExudGpXSnl6S3Nvcko1VXlZS0E9PSIsInZhbHVlIjoib2kxcis3aU1jRHNEaThJNWJhMFZcL000M2liMWxTZWxLaDdcL1RibGlFYWs3VkZuXC9iZmNaRnREYk9CclhXOUpKQyIsIm1hYyI6IjgwNzU0YjZiMTI4YWJmNGQzM2IwZmUwMzJhYzcxNmY3MDhkZjk0MWFmMTk0ZTk1NDMyZWQ3NTg5MTBjMTEzYjgifQ%3D%3D";
@@ -132,7 +132,7 @@ void _testUsingApi(String name, String number) {
 }
 
 Future<void> _searchNumber(String number, String name, String normNumber) async {
-  Response r2 = await Requests.get("/order/status?phone="+number);
+  Response r2 = await Requests.get("https://api.myglo.com.ua/sellers/order/status?phone="+number);
   if (r2.content().length.toString() == "8656") {
     writeFile(name, normNumber);
     print("Подходит - " + name + " " + normNumber);
